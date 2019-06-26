@@ -1,0 +1,18 @@
+.ox {
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  max-width: 56vh;
+  overflow: hidden;
+  margin: 0 auto;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.home {
+  background-image: url('@&bg.jpg&');
+}
+
+.ox {
+  width: 100%;
+  height: 100%;
+}

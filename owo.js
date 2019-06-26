@@ -20,24 +20,89 @@ module.exports = {
     {
       name: 'viewport',
       content: 'initial-scale=1,user-scalable=no,maximum-scale=1',
+    },
+    {
+      name: 'format-detection',
+      content: 'telephone=no, email=no',
+    },
+    {
+      name: 'apple-mobile-web-app-capable',
+      content: 'yes',
+    },
+    {
+      name: 'apple-mobile-web-app-status-bar-style',
+      content: 'white',
+    },
+    {
+      name: 'renderer',
+      content: 'webkit',
+    },
+    {
+      'http-equiv': 'X-UA-Compatible',
+      content: 'IE=edge,chrome=1',
+    },
+    {
+      name: 'keywords',
+      content: '{TAG_59446_TAG}',
+    },
+    {
+      name: 'description',
+      content: '{TAG_59447_TAG}',
+    },
+    {
+      name: 'catalogs',
+      content: '{TAG_83943_TAG}',
+    },
+    {
+      name: 'filetype',
+      content: '1',
+    },
+    {
+      name: 'publishedtype',
+      content: '1',
+    },
+    {
+      name: 'pagetype',
+      content: '2',
+    },
+    {
+      name: 'screen-orientation',
+      content: 'portrait',
+    },
+    {
+      name: 'x5-orientation',
+      content: 'portrait',
+    },
+    {
+      name: 'full-screen',
+      content: 'yes',
+    },
+    {
+      name: 'x5-fullscreen',
+      content: 'true',
+    },
+    {
+      name: 'browsermode',
+      content: 'application',
+    },
+    {
+      name: 'x5-page-mode',
+      content: 'app',
     }
   ],
   // 使用到的外部脚本清单
-  scriptList: [
-    {
-      name: "gif",
-      src: "./src/script/log.js",
-      // 是否使用babel处理
-      babel: true,
-      // 是否异步加载此脚本,请确保此脚本不会对DOM进行操作
-      defer: true
-    }
-  ],
+  scriptList: [],
   // 使用到的样式列表
   styleList: [
     {
+      resource: true,
       name: "main",
       src: "./src/main.css"
+    },
+    {
+      resource: true,
+      name: "h5",
+      src: "./src/h5.css"
     }
   ],
   // 页面清单
@@ -45,23 +110,14 @@ module.exports = {
     {
       // 是否为页面主入口
       main: true,
-      isPage: true,
       name: 'home',
+      isPage: true,
       src: './src/page/home.page'
     },
     {
+      name: 'two',
       isPage: true,
-      name: 'name',
-      src: './src/page/name.page',
-      // 页面也可以传参数
-      prop: {
-        text: '样式隔离:组件与组件之间的样式不会相互影响'
-      }
-    },
-    {
-      isPage: true,
-      name: 'animation',
-      src: './src/page/animation.page'
+      src: './src/page/two.page'
     }
   ],
   // 调试模式配置

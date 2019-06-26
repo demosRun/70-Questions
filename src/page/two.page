@@ -1,0 +1,43 @@
+<template>
+  <div class="two">
+    <img class="edit" src="@&edit.png&"/>
+    <!-- 查看答题规则 -->
+    <img class="look" src="@&look.png&"/>
+    <!-- 按钮 -->
+    <img class="go" src="@&go.png&"/>
+  </div>
+</template>
+
+<script>
+  module.exports = {
+    data: {
+    },
+    created: function () {
+
+    }
+  }
+</script>
+
+
+<style lang="less">
+.edit {
+  width: 12%;
+  position: absolute;
+  left: 8%;
+  top: 10%;
+}
+.go {
+  width: 35%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 10%;
+}
+.look {
+  width: 36%;
+  position: absolute;
+  top: 60%;
+  left: 24%;
+}
+</style>

@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-
+    <img class="title title1" src="@&title-1.png&"/>
+    <img class="title title2" src="@&title-2.png&"/>
+    <img class="title title3" src="@&title-3.png&"/>
   </div>
 </template>
 
@@ -9,7 +11,10 @@
     data: {
     },
     created: function () {
-      
+      // 3秒后跳转页面
+      setTimeout(() => {
+        $go('two', 'moveToLeft', 'moveFromRight')
+      }, 4000)
     }
   }
 </script>
@@ -17,4 +22,72 @@
 
 <style lang="less">
 
+@keyframes moveFromTop {
+  from {
+    top: -5%;
+    opacity: 0;
+  }
+  to {
+    top: 15%;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes moveFromBootom {
+  from {
+    bottom: -5%;
+    opacity: 0;
+  }
+  to {
+    bottom: 12%;
+    opacity: 1;
+  }
+}
+
+.title {
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+}
+.title1 {
+  width: 67%;
+  left: 0;
+  right: 0;
+  top: 15%;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-name: 'moveFromTop';
+  animation-duration: 1s;
+}
+.title2 {
+  width: 88%;
+  left: 0;
+  right: 0;
+  top: 15%;
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-name: 'fadein';
+  animation-duration: 3.5s;
+  animation-delay: 1s;
+}
+.title3 {
+  width: 85%;
+  bottom: 12%;
+  left: 0;
+  right: 0;
+  opacity: 0;;
+  animation-fill-mode: forwards;
+  animation-name: 'moveFromBootom';
+  animation-duration: 1s;
+  animation-delay: 3s;
+}
 </style>
