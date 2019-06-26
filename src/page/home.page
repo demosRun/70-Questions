@@ -1,0 +1,20 @@
+<template>
+  <div class="home">
+
+  </div>
+</template>
+
+<script>
+  module.exports = {
+    data: {
+    },
+    created: function () {
+      
+    }
+  }
+</script>
+
+
+<style lang="less">
+
+</style>
