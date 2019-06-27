@@ -20,8 +20,11 @@
   height: 100%;
 }
 
-body, html {
+body {
   margin: 0 auto;
-  max-width: 56vh;
+  max-width: 70vh;
+  overflow: hidden;
+}
+.safety {
   overflow: hidden;
 }

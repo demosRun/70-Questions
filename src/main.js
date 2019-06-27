@@ -1,1 +1,4 @@
-console.log('全局js')
+console.log('sd')
+document.addEventListener('touchmove', function(e){
+  e.preventDefault()
+}, false)
