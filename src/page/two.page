@@ -2,9 +2,14 @@
   <div class="two">
     <img class="edit" src="@&edit.png&"/>
     <!-- 查看答题规则 -->
-    <img class="look" src="@&look.png&"/>
+    <img class="look" src="@&look.png&" @click="look"/>
     <!-- 按钮 -->
-    <img class="go" src="@&go.png&"/>
+    <img class="go" src="@&go.png&" @click="toAnswerQuestions"/>
+    <!-- 编者按文字 -->
+    <p>
+      &nbsp;&nbsp;统战工作作为党的“三大法宝”之一，在新中国建设发展中起到了举足轻重的作用。
+      &nbsp;&nbsp;为礼敬新中国成立70周年华诞，人民网联合中央统战部宣传办于7月29日起推出“统一战线知识70年70题”移动端有奖竞答活动。
+    </p>
   </div>
 </template>
 
@@ -13,7 +18,17 @@
     data: {
     },
     created: function () {
-
+      // 注册返回方式
+      owo.state.animation = {
+        "in": 'moveToRight',
+        "out": 'moveFromLeft'
+      }
+    },
+    look: function () {
+      $go('rule', 'moveToLeft', 'moveFromRight')
+    },
+    toAnswerQuestions: function () {
+      $go('answer', 'moveToLeft', 'moveFromRight')
     }
   }
 </script>
@@ -33,11 +48,33 @@
   right: 0;
   margin: auto;
   bottom: 10%;
+  cursor: pointer;
+  // 闪烁动画
+  animation-fill-mode: backwards;
+  animation-name: 'twinkle';
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
 .look {
   width: 36%;
   position: absolute;
   top: 60%;
   left: 24%;
+  cursor: pointer;
+}
+p {
+  font-size: 20px;
+  line-height: 34px;
+  width: 64%;
+  position: absolute;
+  left: 24%;
+  top: 10%;
+  height: 43%;
+  color: #484848;
+  overflow: auto;
+  display: block;
+  text-align: justify;
+  padding: 0 3%;
 }
 </style>

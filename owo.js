@@ -118,6 +118,26 @@ module.exports = {
       name: 'two',
       isPage: true,
       src: './src/page/two.page'
+    },
+    {
+      name: 'rule',
+      isPage: true,
+      src: './src/page/rule.page'
+    },
+    {
+      name: 'answer',
+      isPage: true,
+      src: './src/page/answer.page'
+    },
+    {
+      name: 'victory',
+      isPage: true,
+      src: './src/page/victory.page'
+    },
+    {
+      name: 'fail',
+      isPage: true,
+      src: './src/page/fail.page'
     }
   ],
   // 调试模式配置

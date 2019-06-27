@@ -30,3 +30,14 @@ a {
   height: 100%;
   background-color: lightskyblue;
 }
+
+/* 闪烁动画 */
+
+@keyframes twinkle {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,84 @@
+<template>
+  <div class="fail">
+    <img class="box" src="@&fail.png&"/>
+    <div class="text">很遗憾！<br>您一共答对了<span>6</span>题</div>
+    <img class="title title3" src="@&title-3.png&"/>
+    <!-- 重来 -->
+    <img class="again" src="@&again.png&" @click="toAnswerQuestions"/>
+  </div>
+</template>
+
+<script>
+  module.exports = {
+    data: {
+    },
+    created: function () {
+      // 注册返回方式
+      owo.state.animation = {
+        "in": 'moveToRight',
+        "out": 'moveFromLeft'
+      }
+      this.$el.getElementsByTagName('span')[0].innerText = owo.state.right ? owo.state.right : 0
+    },
+    toAnswerQuestions: function () {
+      $go('answer', 'moveToLeft', 'moveFromRight')
+    }
+  }
+</script>
+
+
+<style lang="less">
+.fail {
+  background-image: url('@&bg-2.jpg&');
+}
+.title {
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+}
+.title3 {
+  width: 85%;
+  bottom: 12%;
+  left: 0;
+  right: 0;
+}
+.box {
+  width: 80%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 13%;
+}
+.text {
+  width: 63%;
+  text-align: center;
+  font-size: 26px;
+  color: #484848;
+  line-height: 40px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 30%;
+  position: absolute;
+  span {
+    color: #ec513a;
+    font-size: 43px;
+    margin: 0 5px;
+  }
+}
+.again {
+  position: absolute;
+  width: 33%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 46%;
+  // 闪烁动画
+  animation-fill-mode: backwards;
+  animation-name: 'twinkle';
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+</style>

@@ -13,8 +13,9 @@
     created: function () {
       // 3秒后跳转页面
       setTimeout(() => {
+        // $go('two', 'moveToRight', 'moveFromLeft')
         $go('two', 'moveToLeft', 'moveFromRight')
-      }, 4000)
+      }, 6000)
     }
   }
 </script>

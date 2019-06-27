@@ -1,0 +1,280 @@
+<template>
+  <div class="answer">
+    <img class="title" src="@&title.png&"/>
+    <div class="decorate"><span class="red">1</span> / <span class="blue">10</span></div>
+    <ul class="subject-box">
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+      <li>
+        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
+        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
+        <span>《论持久战》</span>
+        <span>《抗日游击战争的战略问题》</span>
+      </li>
+    </ul>
+    <img class="before" src="@&before.png&" @click="before"/>
+    <img class="after" src="@&after.png&" @click="after"/>
+  </div>
+</template>
+
+<script>
+  module.exports = {
+    data: {
+      index: 0,
+      // 总数
+      total: 0,
+      // 答对总数
+      right: 0,
+      // 标示是否正在运行
+      running: false
+    },
+    created: function () {
+      // 注册返回方式
+      owo.state.animation = {
+        "in": 'moveToRight',
+        "out": 'moveFromLeft'
+      }
+      // 初始化数据
+      owo.state.right = this.data.total = this.data.index = 0
+      // 清除对错标记
+      this.clear()
+      // 获取屏幕宽度
+      const screenW = window.innerWidth
+      // 计算列表宽度
+      const box =  this.$el.getElementsByTagName('ul')[0]
+      const list = this.$el.getElementsByTagName('li')
+
+      // 记录总数
+      this.data.total = list.length
+      // console.log(box * list.length)
+      box.style.width = list.length * screenW + 'px'
+      for (const key in list) {
+        if (list.hasOwnProperty(key)) {
+          const element = list[key];
+          element.style.width = screenW + 'px'
+        }
+      }
+
+      // 改变页码显示
+      this.changeDecorate()
+      // 绑定点击事件
+      const card = this.$el.getElementsByTagName('span')
+      for (const key in card) {
+        if (card.hasOwnProperty(key)) {
+          const element = card[key]
+          element.onclick = (e) => {
+            if (this.data.running) return
+            // 防止重复点击
+            this.data.running = true
+            const target = e.target
+            // 判断是否答对
+            if (target.classList.contains('right')) {
+              // 答对了
+              this.data.right++
+              target.classList.add('click')
+            } else {
+              // 答错了
+              target.classList.add('click')
+              target.parentElement.getElementsByClassName('right')[0].classList.add('click')
+            }
+            // 无论对错均进入下一题
+            setTimeout(() => {
+              this.after()
+            }, 1000)
+          }
+        }
+      }
+    },
+    clear: function () {
+      const clickList = this.$el.getElementsByClassName('click')
+      // console.log(clickList)
+      for (const key in clickList) {
+        if (clickList.hasOwnProperty(key)) {
+          const element = clickList[key]
+          setTimeout(() => {
+            element.classList.remove('click')
+          }, 0)
+          
+        }
+      }
+    },
+    changeDecorate: function () {
+      this.data.running = true
+      // 获取屏幕宽度
+      const screenW = window.innerWidth
+      // 当前的index
+      const index = this.data.index
+      const box =  this.$el.getElementsByTagName('ul')[0]
+      box.style.left = -screenW * this.data.index + 'px'
+      const decorate =  this.$el.getElementsByClassName('decorate')[0]
+      decorate.innerHTML = `<span class="red">${index + 1}</span> / <span class="blue">${this.data.total}</span>`
+      this.data.running = false
+    },
+    // 上一题
+    before: function () {
+      if (this.data.index > 0) {
+        this.data.index--
+        // 改变页码显示
+        this.changeDecorate()
+      } else {
+        owo.tool.toast('已经在最前了!')
+      }
+    },
+    after: function () {
+      // console.log(this.data.index, this.data.total - 1)
+      if (this.data.index < this.data.total - 1) {
+        this.data.index++
+        // 改变页码显示
+        this.changeDecorate()
+      } else {
+        // 保存结果
+        owo.state.right = this.data.right
+        // 已经在最后了则进入结果页
+        if (this.data.right > 6) {
+          // 进入成功页面
+          $go('victory', 'moveToLeft', 'moveFromRight')
+        } else {
+          // 进入失败页面
+          $go('fail', 'moveToLeft', 'moveFromRight')
+        }
+      }
+    }
+  }
+</script>
+
+
+<style lang="less">
+.answer {
+  background-image: url('@&bg-2.jpg&');
+}
+.title {
+  width: 80%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 10%;
+  margin: 0 auto;
+}
+.decorate {
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  text-align: center;
+  line-height: 30px;
+  background-image: url('@&decorate.png&');
+  .red {
+    color: #cf2444;
+  }
+  .blue {
+    color: #29429f;
+  }
+}
+.before {
+  position: absolute;
+  bottom: 10%;
+  width: 100px;
+  left: 8%;
+}
+.after {
+  position: absolute;
+  bottom: 10%;
+  width: 100px;
+  right: 8%;
+}
+.subject-box {
+  width: 100%;
+  height: 55%;
+  position: absolute;
+  top: 26%;
+  left: 0;
+  overflow: auto;
+  transition: left 0.5s;
+  li {
+    float: left;
+    height: 100%;
+    h2 {
+      color: #484848;
+      font-size: 20px;
+      margin: 0 25px;
+      margin-bottom: 30px;
+    }
+    span {
+      display: block;
+      background-color: white;
+      margin: 20px 25px;
+      font-size: 20px;
+      text-align: center;
+      padding: 5px 0;
+      line-height: 35px;
+      color: #484848;
+      border-radius: 5px;
+      box-shadow: 2px 2px 5px #888888;
+      background-repeat: no-repeat;
+      background-size: 25px;
+      background-position: 97% 90%;
+    }
+    span.click {
+      background-image: url('@&error.png&');
+    }
+    .right.click {
+      background-image: url('@&right.png&');
+    }
+  }
+}
+</style>

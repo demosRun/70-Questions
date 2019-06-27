@@ -1,0 +1,83 @@
+<template>
+  <div class="rule">
+    <img class="text-box" src="@&text-box.png&"/>
+    <!-- 按钮 -->
+    <img class="go" src="@&go.png&" @click="toAnswerQuestions"/>
+    <!--规则文字 -->
+    <p>
+      1、10道单选题答对6道题目以上即可参与活动抽奖。<br>
+      2、每周一由“统战新语”微信公众号公布上一周获奖名单，每名获奖者可免费领取100元手机话费。<br>
+      3、2019年7月29日——9月13日推出竞答活动。<br>
+      4、本次活动最终解释权归“人民网”“中国统一战线新闻网”所有。<br>
+    </p>
+  </div>
+</template>
+
+<script>
+  module.exports = {
+    created: function () {
+      // 注册返回方式
+      owo.state.animation = {
+        "in": 'moveToRight',
+        "out": 'moveFromLeft'
+      }
+    },
+    look: function () {
+      $go('two', 'moveToLeft', 'moveFromRight')
+    },
+    toAnswerQuestions: function () {
+      $go('answer', 'moveToLeft', 'moveFromRight')
+    }
+  }
+</script>
+
+
+<style lang="less">
+.rule {
+  background-image: url('@&bg-3.jpg&');
+}
+.look {
+  width: 36%;
+  position: absolute;
+  top: 60%;
+  left: 24%;
+  cursor: pointer;
+}
+p {
+  font-size: 16px;
+  line-height: 27px;
+  width: 64%;
+  position: absolute;
+  left: 16%;
+  top: 20%;
+  height: 81vw;
+  color: #102869;
+  overflow: auto;
+  display: block;
+  text-align: justify;
+  padding: 0 3%;
+}
+.text-box {
+  position: absolute;
+  width: 78%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 10%;
+}
+.go {
+  width: 30%;
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: auto;
+  bottom: 6%;
+  cursor: pointer;
+  // 闪烁动画
+  animation-fill-mode: backwards;
+  animation-name: 'twinkle';
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+</style>
