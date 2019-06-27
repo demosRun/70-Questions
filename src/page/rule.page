@@ -1,15 +1,17 @@
 <template>
   <div class="rule">
-    <img class="text-box" src="@&text-box.png&"/>
-    <!-- 按钮 -->
-    <img class="go" src="@&go.png&" @click="toAnswerQuestions"/>
-    <!--规则文字 -->
-    <p>
-      1、10道单选题答对6道题目以上即可参与活动抽奖。<br>
-      2、每周一由“统战新语”微信公众号公布上一周获奖名单，每名获奖者可免费领取100元手机话费。<br>
-      3、2019年7月29日——9月13日推出竞答活动。<br>
-      4、本次活动最终解释权归“人民网”“中国统一战线新闻网”所有。<br>
-    </p>
+    <div class="safety">
+      <img class="text-box" src="@&text-box.png&"/>
+      <!-- 按钮 -->
+      <img class="go" src="@&go.png&" @click="toAnswerQuestions"/>
+      <!--规则文字 -->
+      <p>
+        1、10道单选题答对6道题目以上即可参与活动抽奖。<br>
+        2、每周一由“统战新语”微信公众号公布上一周获奖名单，每名获奖者可免费领取100元手机话费。<br>
+        3、2019年7月29日——9月13日推出竞答活动。<br>
+        4、本次活动最终解释权归“人民网”“中国统一战线新闻网”所有。<br>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -20,6 +22,20 @@
       owo.state.animation = {
         "in": 'moveToRight',
         "out": 'moveFromLeft'
+      }
+      // 计算长宽比例
+      const sw = document.body.offsetWidth / 750
+      const sh = document.body.offsetHeight / 1500
+      const ms = sw > sh ? sh : sw
+      // 获取页面安全区
+      const safety = this.$el.getElementsByClassName('safety')[0]
+      safety.style.transform = `scale(${ms})`
+      if (sw > sh) {
+        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
+        safety.style.left = `${-750 / 2 * (1 - sw)}px`
+      } else {
+        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
+        safety.style.left = `${-750 / 2 * (1 - sw)}px`
       }
     },
     look: function () {
@@ -44,13 +60,13 @@
   cursor: pointer;
 }
 p {
-  font-size: 16px;
-  line-height: 27px;
-  width: 64%;
+  font-size: 30px;
+  line-height: 50px;
+  width: 62%;
   position: absolute;
   left: 16%;
-  top: 20%;
-  height: 81vw;
+  top: 385px;
+  height: 562px;
   color: #102869;
   overflow: auto;
   display: block;
@@ -59,19 +75,17 @@ p {
 }
 .text-box {
   position: absolute;
-  width: 78%;
   left: 0;
   right: 0;
   margin: 0 auto;
-  top: 10%;
+  top: 260px;
 }
 .go {
-  width: 30%;
   left: 0;
   right: 0;
   position: absolute;
   margin: auto;
-  bottom: 6%;
+  top: 1041px;
   cursor: pointer;
   // 闪烁动画
   animation-fill-mode: backwards;

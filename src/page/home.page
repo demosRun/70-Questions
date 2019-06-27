@@ -14,26 +14,24 @@
     },
     created: function () {
       // 3秒后跳转页面
-      // setTimeout(() => {
-      //   // $go('two', 'moveToRight', 'moveFromLeft')
-      //   $go('two', 'moveToLeft', 'moveFromRight')
-      // }, 6000)
+      setTimeout(() => {
+        // $go('two', 'moveToRight', 'moveFromLeft')
+        $go('two', 'moveToLeft', 'moveFromRight')
+      }, 6000)
       // 计算长宽比例
-      const sw = window.innerWidth / 750
-      const sh = window.innerHeight / 1500
+      const sw = document.body.offsetWidth / 750
+      const sh = document.body.offsetHeight / 1500
       const ms = sw > sh ? sh : sw
       // 获取页面安全区
       const safety = this.$el.getElementsByClassName('safety')[0]
       safety.style.transform = `scale(${ms})`
-      console.log(1500 * ms, 1500 / 2 * (1 - ms))
       if (sw > sh) {
-        safety.style.top = `${-1500 / 2 * (1 - ms)}px`
-        safety.style.left = `${-750 * ms / 2}px`
+        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
+        safety.style.left = `${-750 / 2 * (1 - sw)}px`
       } else {
-        safety.style.top = `${-1500 * ms / 2}px`
-        safety.style.left = `${-750 / 2 * (1 - ms)}px`
+        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
+        safety.style.left = `${-750 / 2 * (1 - sw)}px`
       }
-      console.log(ms)
     }
   }
 </script>
@@ -106,11 +104,5 @@
   animation-name: 'moveFromBootom';
   animation-duration: 1s;
   animation-delay: 3s;
-}
-.safety {
-  width: 750px;
-  height: 1500px;
-  position: absolute;
-  transform-origin: center;
 }
 </style>

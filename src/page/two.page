@@ -1,15 +1,17 @@
 <template>
   <div class="two">
-    <img class="edit" src="@&edit.png&"/>
-    <!-- 查看答题规则 -->
-    <img class="look" src="@&look.png&" @click="look"/>
-    <!-- 按钮 -->
-    <img class="go" src="@&go.png&" @click="toAnswerQuestions"/>
-    <!-- 编者按文字 -->
-    <p>
-      &nbsp;&nbsp;统战工作作为党的“三大法宝”之一，在新中国建设发展中起到了举足轻重的作用。
-      &nbsp;&nbsp;为礼敬新中国成立70周年华诞，人民网联合中央统战部宣传办于7月29日起推出“统一战线知识70年70题”移动端有奖竞答活动。
-    </p>
+    <div class="safety">
+      <img class="edit" src="@&edit.png&"/>
+      <!-- 查看答题规则 -->
+      <img class="look" src="@&look.png&" @click="look"/>
+      <!-- 按钮 -->
+      <img class="go" src="@&go.png&" @click="toAnswerQuestions"/>
+      <!-- 编者按文字 -->
+      <p>
+        &nbsp;&nbsp;统战工作作为党的“三大法宝”之一，在新中国建设发展中起到了举足轻重的作用。
+        &nbsp;&nbsp;为礼敬新中国成立70周年华诞，人民网联合中央统战部宣传办于7月29日起推出“统一战线知识70年70题”移动端有奖竞答活动。
+      </p>
+    </div>
   </div>
 </template>
 
@@ -22,6 +24,20 @@
       owo.state.animation = {
         "in": 'moveToRight',
         "out": 'moveFromLeft'
+      }
+      // 计算长宽比例
+      const sw = document.body.offsetWidth / 750
+      const sh = document.body.offsetHeight / 1500
+      const ms = sw > sh ? sh : sw
+      // 获取页面安全区
+      const safety = this.$el.getElementsByClassName('safety')[0]
+      safety.style.transform = `scale(${ms})`
+      if (sw > sh) {
+        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
+        safety.style.left = `${-750 / 2 * (1 - sw)}px`
+      } else {
+        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
+        safety.style.left = `${-750 / 2 * (1 - sw)}px`
       }
     },
     look: function () {
@@ -36,18 +52,16 @@
 
 <style lang="less">
 .edit {
-  width: 12%;
   position: absolute;
-  left: 8%;
-  top: 10%;
+  left: 70.87px;
+  top: 228.76px;
 }
 .go {
-  width: 35%;
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
-  bottom: 10%;
+  top: 1055.91px;
   cursor: pointer;
   // 闪烁动画
   animation-fill-mode: backwards;
@@ -57,24 +71,22 @@
   animation-iteration-count: infinite;
 }
 .look {
-  width: 36%;
   position: absolute;
-  top: 60%;
-  left: 24%;
+  top: 923px;
+  left: 176px;
   cursor: pointer;
 }
 p {
-  font-size: 20px;
-  line-height: 34px;
-  width: 64%;
+  font-size: 38px;
+  line-height: 72px;
+  width: 505px;
   position: absolute;
-  left: 24%;
-  top: 10%;
-  height: 43%;
+  left: 186px;
+  top: 233px;
+  height: 600px;
   color: #484848;
   overflow: auto;
   display: block;
   text-align: justify;
-  padding: 0 3%;
 }
 </style>

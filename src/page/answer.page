@@ -91,7 +91,7 @@
       // 清除对错标记
       this.clear()
       // 获取屏幕宽度
-      const screenW = window.innerWidth
+      const screenW = document.body.offsetWidth
       // 计算列表宽度
       const box =  this.$el.getElementsByTagName('ul')[0]
       const list = this.$el.getElementsByTagName('li')

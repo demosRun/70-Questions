@@ -1,10 +1,12 @@
 <template>
   <div class="fail">
-    <img class="box" src="@&fail.png&"/>
-    <div class="text">很遗憾！<br>您一共答对了<span>6</span>题</div>
-    <img class="title title3" src="@&title-3.png&"/>
-    <!-- 重来 -->
-    <img class="again" src="@&again.png&" @click="toAnswerQuestions"/>
+    <div class="safety">
+      <img class="box" src="@&fail.png&"/>
+      <div class="text">很遗憾！<br>您一共答对了<span>6</span>题</div>
+      <img class="title title3" src="@&title-3.png&"/>
+      <!-- 重来 -->
+      <img class="again" src="@&again.png&" @click="toAnswerQuestions"/>
+    </div>
   </div>
 </template>
 
@@ -19,6 +21,20 @@
         "out": 'moveFromLeft'
       }
       this.$el.getElementsByTagName('span')[0].innerText = owo.state.right ? owo.state.right : 0
+      // 计算长宽比例
+      const sw = document.body.offsetWidth / 750
+      const sh = document.body.offsetHeight / 1500
+      const ms = sw > sh ? sh : sw
+      // 获取页面安全区
+      const safety = this.$el.getElementsByClassName('safety')[0]
+      safety.style.transform = `scale(${ms})`
+      if (sw > sh) {
+        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
+        safety.style.left = `${-750 / 2 * (1 - sw)}px`
+      } else {
+        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
+        safety.style.left = `${-750 / 2 * (1 - sw)}px`
+      }
     },
     toAnswerQuestions: function () {
       $go('answer', 'moveToLeft', 'moveFromRight')
@@ -37,25 +53,22 @@
   position: absolute;
 }
 .title3 {
-  width: 85%;
-  bottom: 12%;
+  top: 1239px;
   left: 0;
   right: 0;
 }
 .box {
-  width: 80%;
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 104px;
   margin: auto;
-  top: 13%;
+  top: 284px;
 }
 .text {
   width: 63%;
   text-align: center;
-  font-size: 23px;
+  font-size: 50px;
   color: #484848;
-  line-height: 40px;
+  line-height: 100px;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -63,17 +76,15 @@
   position: absolute;
   span {
     color: #ec513a;
-    font-size: 43px;
+    font-size: 77px;
     margin: 0 5px;
   }
 }
 .again {
   position: absolute;
-  width: 33%;
-  left: 0;
-  right: 0;
+  left: 235px;
   margin: auto;
-  top: 46%;
+  top: 689px;
   // 闪烁动画
   animation-fill-mode: backwards;
   animation-name: 'twinkle';
