@@ -1,0 +1,746 @@
+/* 这个文件里写的是全局样式,在各个页面都生效 */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Microsoft YaHei;
+  position: relative;
+}
+/* 清除浮动 */
+.clear {
+  clear: both;
+}
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  
+}
+a {
+  text-decoration: none;
+}
+.ox {
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  transform-style: preserve-3d;
+}
+.ox-home {
+  padding: 10px;
+}
+.ox-name {
+  width: 100%;
+  height: 100%;
+  background-color: lightskyblue;
+}
+
+/* 闪烁动画 */
+
+@keyframes twinkle {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 页面切换动画 */
+.o-page-moveToRight {
+	-webkit-animation: moveToRight .6s ease both;
+	-moz-animation: moveToRight .6s ease both;
+	animation: moveToRight .6s ease both;
+}
+
+@-webkit-keyframes moveToRight { 
+	to { -webkit-transform: translateX(100%); }
+}
+@-moz-keyframes moveToRight { 
+	to { -moz-transform: translateX(100%); }
+}
+@keyframes moveToRight { 
+	to { transform: translateX(100%); }
+}
+.o-page-moveFromLeft {
+	-webkit-animation: moveFromLeft .6s ease both;
+	-moz-animation: moveFromLeft .6s ease both;
+	animation: moveFromLeft .6s ease both;
+}
+
+@-webkit-keyframes moveFromLeft {
+	from { -webkit-transform: translateX(-100%); }
+}
+@-moz-keyframes moveFromLeft {
+	from { -moz-transform: translateX(-100%); }
+}
+@keyframes moveFromLeft {
+	from { transform: translateX(-100%); }
+}
+.o-page-moveToLeft {
+	-webkit-animation: moveToLeft .6s ease both;
+	-moz-animation: moveToLeft .6s ease both;
+	animation: moveToLeft .6s ease both;
+}
+
+@-webkit-keyframes moveToLeft {
+	to { -webkit-transform: translateX(-100%); }
+}
+@-moz-keyframes moveToLeft {
+	to { -moz-transform: translateX(-100%); }
+}
+@keyframes moveToLeft {
+	to { transform: translateX(-100%); }
+}
+.o-page-moveFromRight {
+	-webkit-animation: moveFromRight .6s ease both;
+	-moz-animation: moveFromRight .6s ease both;
+	animation: moveFromRight .6s ease both;
+}
+
+@-webkit-keyframes moveFromRight {
+	from { -webkit-transform: translateX(100%); }
+}
+@-moz-keyframes moveFromRight {
+	from { -moz-transform: translateX(100%); }
+}
+@keyframes moveFromRight {
+	from { transform: translateX(100%); }
+}
+
+body, html, .ox {
+  padding: 0;
+  margin: 0;
+}
+
+.owo-animation {
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+/* 清除浮动 */
+.clear:after {
+  content: "";
+  height: 0;
+  line-height: 0;
+  display: block;
+  visibility: hidden;
+  clear: both;
+  zoom: 1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+@-webkit-keyframes moveFromTop {
+  from {
+    top: -60px;
+    opacity: 0;
+  }
+
+  to {
+    top: 190px;
+    opacity: 1;
+  }
+}
+
+@-o-keyframes moveFromTop {
+  from {
+    top: -60px;
+    opacity: 0;
+  }
+
+  to {
+    top: 190px;
+    opacity: 1;
+  }
+}
+
+@keyframes moveFromTop {
+  from {
+    top: -60px;
+    opacity: 0;
+  }
+
+  to {
+    top: 190px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes moveFromBootom {
+  from {
+    top: 1400px;
+    opacity: 0;
+  }
+
+  to {
+    top: 1169px;
+    opacity: 1;
+  }
+}
+
+@-o-keyframes moveFromBootom {
+  from {
+    top: 1400px;
+    opacity: 0;
+  }
+
+  to {
+    top: 1169px;
+    opacity: 1;
+  }
+}
+
+@keyframes moveFromBootom {
+  from {
+    top: 1400px;
+    opacity: 0;
+  }
+
+  to {
+    top: 1169px;
+    opacity: 1;
+  }
+}
+
+[template=home] .title {
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+}
+
+[template=home] .title1 {
+  left: 0;
+  right: 0;
+  top: 150px;
+  opacity: 0;
+  -webkit-animation-fill-mode: forwards;
+       -o-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: 'moveFromTop';
+       -o-animation-name: 'moveFromTop';
+          animation-name: 'moveFromTop';
+  -webkit-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+[template=home] .title2 {
+  left: 0;
+  right: 0;
+  top: 165px;
+  opacity: 0;
+  -webkit-animation-fill-mode: forwards;
+       -o-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: 'fadein';
+       -o-animation-name: 'fadein';
+          animation-name: 'fadein';
+  -webkit-animation-duration: 3.5s;
+       -o-animation-duration: 3.5s;
+          animation-duration: 3.5s;
+  -webkit-animation-delay: 1s;
+       -o-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+[template=home] .title3 {
+  top: 1169px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-animation-fill-mode: forwards;
+       -o-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-name: 'moveFromBootom';
+       -o-animation-name: 'moveFromBootom';
+          animation-name: 'moveFromBootom';
+  -webkit-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 3s;
+       -o-animation-delay: 3s;
+          animation-delay: 3s;
+}
+
+[template=home] .safety {
+  pointer-events: none;
+}
+[template=two] .edit {
+  position: absolute;
+  left: 70.87px;
+  top: 228.76px;
+}
+
+[template=two] .go {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 1055.91px;
+  cursor: pointer;
+  -webkit-animation-fill-mode: backwards;
+       -o-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-animation-name: 'twinkle';
+       -o-animation-name: 'twinkle';
+          animation-name: 'twinkle';
+  -webkit-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-direction: alternate;
+       -o-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+       -o-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+[template=two] .look {
+  position: absolute;
+  top: 923px;
+  left: 176px;
+  cursor: pointer;
+}
+
+[template=two] p {
+  font-size: 40px;
+  line-height: 65px;
+  width: 505px;
+  position: absolute;
+  left: 186px;
+  top: 233px;
+  height: 600px;
+  color: #484848;
+  overflow: auto;
+  display: block;
+  text-align: justify;
+}
+.rule {
+  background-image: url('../resource/bg-3.jpg');
+}
+
+[template=rule] .look {
+  width: 36%;
+  position: absolute;
+  top: 60%;
+  left: 24%;
+  cursor: pointer;
+}
+
+[template=rule] .text {
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 65px;
+  width: 70%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 340px;
+  height: 760px;
+  color: #102869;
+  overflow: auto;
+  display: block;
+  text-align: justify;
+  padding: 0 3%;
+  margin: auto;
+}
+
+[template=rule] .text-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 140px;
+  width: 690px;
+}
+
+[template=rule] p {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+[template=rule] .go {
+  left: 0;
+  right: 0;
+  position: absolute;
+  margin: auto;
+  top: 1170px;
+  cursor: pointer;
+  -webkit-animation-fill-mode: backwards;
+       -o-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-animation-name: 'twinkle';
+       -o-animation-name: 'twinkle';
+          animation-name: 'twinkle';
+  -webkit-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-direction: alternate;
+       -o-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+       -o-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.answer {
+  background-image: url('../resource/bg-2.jpg');
+}
+
+[template=answer] .title {
+  width: 80%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5%;
+  margin: 0 auto;
+}
+
+[template=answer] .decorate {
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  width: 100%;
+  top: 15%;
+  text-align: center;
+  line-height: 30px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASUAAAAICAYAAAC/IukrAAABOklEQVRoge2ZX0oDMRCHP91sfVJ6CRF6Ap9t8QCeoMcQfBeP0RP0ANK+e4JS8RIVfdF2uxKYwhiyfWq6Szof/JjNzJJkMiHsn7O6rjEOy2A40f1dAy/ASNoz4BH48I3FfGyr3yGsdu3jTn0BEnMDvAF9NcwDcAfcAu9ZZp0HVruWOD/JrI/Hc7Cpd/QlZljtjAA3GE4KOZwKJSfy16WypfjLBvX4b70uIv5eg0/bmPTYhWo7ycEFeXT50L3vwByMZkZ7Yv6JqQ5e9Y7NFqiUNuLzdi22kuu18sf0S7ONxX5UH2E8Jj12pexGzXOnrVvMx5W60TgAarN+Ale2ptnxDVzaN6U02OtbWmZ7en/NIcGMsdq1hB1KaXkCVpERVhIzrHZGgB1KaVnKn5op8CWaim+Zc+IZYLVrA+APbrtu77flX5UAAAAASUVORK5CYII=');
+}
+
+[template=answer] .decorate .red {
+  color: #cf2444;
+}
+
+[template=answer] .decorate .blue {
+  color: #29429f;
+}
+
+[template=answer] .before {
+  position: absolute;
+  bottom: 5%;
+  width: 100px;
+  left: 8%;
+}
+
+[template=answer] .after {
+  position: absolute;
+  bottom: 5%;
+  width: 100px;
+  right: 8%;
+}
+
+[template=answer] .subject-box {
+  width: 100%;
+  height: 65%;
+  position: absolute;
+  top: 21%;
+  left: 0;
+  overflow: hidden;
+  -webkit-transition: left 0.5s;
+  -o-transition: left 0.5s;
+  transition: left 0.5s;
+}
+
+[template=answer] .subject-box li {
+  float: left;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+[template=answer] .subject-box li h2 {
+  color: #484848;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 25px;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+[template=answer] .subject-box li span {
+  display: block;
+  background-color: white;
+  margin: 10px 25px;
+  font-size: 16px;
+  padding: 5px 0;
+  line-height: 24px;
+  color: #484848;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 5px #888888;
+          box-shadow: 2px 2px 5px #888888;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: 97% 90%;
+  padding: 10px;
+}
+
+[template=answer] .subject-box li span.click {
+  background-image: url('../resource/error.png');
+}
+
+[template=answer] .subject-box li .right.click {
+  background-image: url('../resource/right.png');
+}
+.victory {
+  background-image: url('../resource/bg-2.jpg');
+}
+
+[template=victory] .title {
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+}
+
+[template=victory] .title3 {
+  top: 1229px;
+  left: 0;
+  right: 0;
+}
+
+[template=victory] .box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 285px;
+}
+
+[template=victory] .text {
+  width: 78%;
+  text-align: center;
+  font-size: 50px;
+  color: #484848;
+  line-height: 80px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 460px;
+  position: absolute;
+}
+
+[template=victory] .text span {
+  color: #ec513a;
+  font-size: 75px;
+  margin: 0 5px;
+}
+
+[template=victory] .input-box {
+  width: 70%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 900px;
+  margin: 0 auto;
+}
+
+[template=victory] .input-box .input-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 25px;
+}
+
+[template=victory] .input-box .input-bar span {
+  color: #484848;
+  width: 200px;
+  text-align: right;
+  font-size: 40px;
+}
+
+[template=victory] .input-box .input-bar input {
+  font-size: 30px;
+  padding: 0 5px;
+  width: 290px;
+  height: 60px;
+}
+
+[template=victory] .button {
+  background-color: #2c469b;
+  text-align: center;
+  color: white;
+  width: 140px;
+  line-height: 60px;
+  font-size: 27px;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 1080px;
+}
+.fail {
+  background-image: url('../resource/bg-2.jpg');
+}
+
+[template=fail] .title {
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+}
+
+[template=fail] .title3 {
+  top: 1239px;
+  left: 0;
+  right: 0;
+}
+
+[template=fail] .box {
+  position: absolute;
+  left: 104px;
+  margin: auto;
+  top: 284px;
+}
+
+[template=fail] .text {
+  width: 63%;
+  text-align: center;
+  font-size: 50px;
+  color: #484848;
+  line-height: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 30%;
+  position: absolute;
+}
+
+[template=fail] .text span {
+  color: #ec513a;
+  font-size: 77px;
+  margin: 0 5px;
+}
+
+[template=fail] .again {
+  position: absolute;
+  left: 235px;
+  margin: auto;
+  top: 689px;
+  -webkit-animation-fill-mode: backwards;
+       -o-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  -webkit-animation-name: 'twinkle';
+       -o-animation-name: 'twinkle';
+          animation-name: 'twinkle';
+  -webkit-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-direction: alternate;
+       -o-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+       -o-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.ox {
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  background-position: center;
+  background-size: 100% 100%;
+}
+.home {
+  background-image: url('../resource/bg.jpg');
+}
+
+.two {
+  background-image: url('../resource/bg-2.jpg');
+}
+
+.ox {
+  width: 100%;
+  height: 100%;
+}
+html, body {
+  overflow:hidden;
+}
+body {
+  margin: 0 auto;
+  max-width: 70vh;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.safety {
+  overflow: hidden;
+}
+.safety {
+  width: 750px;
+  height: 1500px;
+  position: absolute;
+  transform-origin: center;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #FFF;
+  border-left: 1px solid #FFF;
+}
+::-webkit-scrollbar {
+  width: 2px;
+  height: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  background-clip: padding-box;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  min-height: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}

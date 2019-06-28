@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <title>页面</title>
+  <!-- 页面的元信息 -->
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1" />
+  <meta name="format-detection" content="telephone=no, email=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="white" />
+  <meta name="renderer" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="keywords" content="{TAG_59446_TAG}" />
+  <meta name="description" content="{TAG_59447_TAG}" />
+  <meta name="catalogs" content="{TAG_83943_TAG}" />
+  <meta name="filetype" content="1" />
+  <meta name="publishedtype" content="1" />
+  <meta name="pagetype" content="2" />
+  <meta name="screen-orientation" content="portrait" />
+  <meta name="x5-orientation" content="portrait" />
+  <meta name="full-screen" content="yes" />
+  <meta name="x5-fullscreen" content="true" />
+  <meta name="browsermode" content="application" />
+  <meta name="x5-page-mode" content="app" />
+  <!-- 页面主样式文件 -->
+  <link rel="stylesheet" href="./static/css/main.css" charset="utf-8">
+</head>
+
+<body>
+  <!-- 页面区域 -->
+  <div class="home ox" @click="turn" template="home" id="o-home" style="display: none;">
+    <div class="safety">
+      <img class="title title1" src="./static/resource/title-1.png">
+      <img class="title title2" src="./static/resource/title-2.png">
+      <img class="title title3" src="./static/resource/title-3.png">
+    </div>
+  </div>
+  <div class="two ox" template="two" id="o-two" style="display: none;">
+    <div class="safety">
+      <img class="edit" src="./static/resource/edit.png">
+      <!-- 查看答题规则 -->
+      <img class="look" src="./static/resource/look.png" @click="look">
+      <!-- 按钮 -->
+      <img class="go" src="./static/resource/go.png" @click="toAnswerQuestions">
+      <!-- 编者按文字 -->
+      <p>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;统战工作作为党的“三大法宝”之一，在新中国建设发展中起到了举足轻重的作用。<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为礼敬新中国成立70周年华诞，人民网联合中央统战部宣传办于7月29日起推出“统一战线知识70年70题”移动端有奖竞答活动。
+      </p>
+    </div>
+  </div>
+  <div class="rule ox" template="rule" id="o-rule" style="display: none;">
+    <div class="safety">
+      <img class="text-box" src="./static/resource/text-box.png">
+      <!-- 按钮 -->
+      <img class="go" src="./static/resource/go.png" @click="toAnswerQuestions">
+      <!--规则文字 -->
+      <div class="text">
+        <p>1、10道单选题答对6道题目以上即可参与活动抽奖。</p>
+        <p>2、每周一由“统战新语”微信公众号公布上一周获奖名单，每名获奖者可免费领取100元手机话费。</p>
+        <p>3、2019年7月29日——9月13日推出竞答活动。</p>
+        <p>4、本次活动最终解释权归“人民网”“中国统一战线新闻网”所有。</p>
+      </div>
+    </div>
+  </div>
+  <div class="answer ox" template="answer" id="o-answer" style="display: none;">
+    <img class="title" src="./static/resource/title.png">
+    <div class="decorate">
+      <span class="red">1</span> / <span class="blue">10</span>
+    </div>
+    <!-- 题目 -->
+    <ul class="subject-box clear">
+      <li>
+        <h2>党的十八大以来，以习近平同志为核心的党中央把统一战线作为治国理政的重要方面，召开了一系列重要会议，颁布了一系列重要法规文件，特别是习近平总书记发表了一系列重要讲话，提出了一系列新思想新观点新要求，形成了（ ），成为习近平新时代中国特色社会主义思想的重要组成部分。</h2>
+        <span class="right">A.习近平总书记关于加强和改进统一战线工作的重要思想</span>
+        <span>B.习近平统战思想</span>
+        <span>C.习近平统一战线思想</span>
+        <span>D.习近平新时代统一战线思想</span>
+      </li>
+      <li>
+        <h2>习近平总书记关于加强和改进统一战线工作的重要思想内容极为丰富，思想极为深刻，浓缩到一点，就是习近平总书记在党的十九大报告中强调的“找到最大公约数、（ ）”。这是对我们党统一战线理论和实践的深刻总结，也是贯穿新时代统战工作的一条主线。</h2>
+        <span>A.形成最大同心圆</span>
+        <span>B.结成做大同心圆</span>
+        <span>C.铸成最大同心圆</span>
+        <span class="right">D.画出最大同心圆</span>
+      </li>
+      <li>
+        <h2>做好新形势下统战工作，必须掌握规律、坚持原则、讲究方法，最根本的是要坚持（ ）。</h2>
+        <span>A.正确处理一致性与多样性的关系</span>
+        <span class="right">B.党的领导</span>
+        <span>C.民主和协商</span>
+        <span>D.以人民为中心</span>
+      </li>
+      <li>
+        <h2>中国共产党同各民主党派实行长期共存、互相 监督、（ ）、（ ）的基本方针。</h2>
+        <span>A.互相制衡、轮流坐庄</span>
+        <span>B.互利互惠、和平共处</span>
+        <span class="right">C.肝胆相照、荣辱与共</span>
+        <span>D.互相竞争、优胜劣汰</span>
+
+      </li>
+      <li>
+        <h2>民主党派的基本职能是参政议政、民主监督，（ ）。</h2>
+        <span>A.政治参与</span>
+        <span>B.社会服务</span>
+        <span>C.利益表达</span>
+        <span class="right">D.参加中国共产党领导的政治协商</span>
+
+      </li>
+      <li>
+        <h2>1902年，（ ）正式提出了“中华民族”的称谓。</h2>
+        <span>A. 孙中山</span>
+        <span class="right">B. 梁启超</span>
+        <span>C. 康有为</span>
+        <span>D. 魏源</span>
+
+      </li>
+      <li>
+        <h2>新中国成立以来，我国先后设立五个自治区，分别是（ ）</h2>
+        <span class="right">A. 内蒙古自治区、新疆维吾尔自治区、广西壮族自治区、宁夏回族自治区、西藏自治区</span>
+        <span>B. 内蒙古自治区、广西壮族自治区、新疆维吾尔自治区、宁夏回族自治区、西藏自治区</span>
+        <span>C. 内蒙古自治区、广西壮族自治区、宁夏回族自治区、新疆维吾尔自治区、西藏自治区</span>
+        <span>D. 内蒙古自治区、宁夏回族自治区、广西壮族自治区、新疆维吾尔自治区、西藏自治区</span>
+      </li>
+      <li>
+        <h2>世界三大宗教是指（ ）。</h2>
+        <span>A.伊斯兰教、基督教、犹太教</span>
+        <span>B.道教、伊斯兰教、基督教</span>
+        <span>C.佛教、道教、伊斯兰教</span>
+        <span class="right">D.基督教、伊斯兰教、佛教</span>
+
+      </li>
+      <li>
+        <h2>我国基本经济制度中，坚持“两个毫不动摇”是指（ ）。</h2>
+        <span class="right">A.毫不动摇巩固和发展公有制经济，毫不动摇鼓励、支持、引导非公有制经济发展</span>
+        <span>B.毫不动摇巩固和发展国有企业，毫不动摇鼓励、支持、引导民营企业发展</span>
+        <span>C.毫不动摇巩固和发展公有制经济，毫不动摇鼓励、支持、引导混合所有制经济发展</span>
+        <span>D.毫不动摇巩固和发展非公有制经济，毫不动摇鼓励、支持、引导非公有制经济人士发展</span>
+
+      </li>
+      <li>
+        <h2>港澳统一战线工作要全面准确贯彻（ ）的方针。</h2>
+        <span>A.严格依照宪法和基本法办事，支持特别行政区行政长官和政府依法施政</span>
+        <span class="right">B.“一国两制”、“港人治港”、“澳人治澳”、高度自治</span>
+        <span>C.发展壮大爱国爱港、爱国爱澳力量</span>
+        <span>D.增强香港同胞、澳门同胞的国家观念和中华民族意识，保持香港、澳门长期繁荣稳定</span>
+      </li>
+    </ul>
+    <img class="before" src="./static/resource/before.png" @click="before">
+    <img class="after" src="./static/resource/after.png" @click="after">
+  </div>
+  <div class="victory ox" template="victory" id="o-victory" style="display: none;">
+    <div class="safety">
+      <img class="box" src="./static/resource/victory.png">
+      <div class="text">恭喜您！<br>您一共答对了<span class="number">6</span>题</div>
+      <img class="title title3" src="./static/resource/title-3.png">
+      <!-- 输入框 -->
+      <div class="input-box">
+        <div class="input-bar">
+          <span>姓名：</span>
+          <input id="name" type="text">
+        </div>
+        <div class="input-bar">
+          <span>手机号：</span>
+          <input id="phone" type="text">
+        </div>
+      </div>
+      <div class="button" @click="submit">提交</div>
+    </div>
+  </div>
+  <div class="fail ox" template="fail" id="o-fail" style="display: none;">
+    <div class="safety">
+      <img class="box" src="./static/resource/fail.png">
+      <div class="text">很遗憾！<br>您一共答对了<span>6</span>题</div>
+      <img class="title title3" src="./static/resource/title-3.png">
+      <!-- 重来 -->
+      <img class="again" src="./static/resource/again.png" @click="toAnswerQuestions">
+    </div>
+  </div>
+  <script>
+    const serverIp = "http://www.people.com.cn/"
+  </script>
+  <script src="http://tools.people.com.cn/libs/jquery/3.0.0/jquery-3.0.0.min.js" type="text/javascript" charset="UTF-8"></script>
+  <script src="./static/js/owo.main.exeixojj0jr.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+
+</html>
