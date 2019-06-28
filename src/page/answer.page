@@ -2,12 +2,20 @@
   <div class="answer">
     <img class="title" src="@&title.png&"/>
     <div class="decorate"><span class="red">1</span> / <span class="blue">10</span></div>
-    <ul class="subject-box">
+    <ul class="subject-box clear">
       <li>
-        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
-        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
-        <span>《论持久战》</span>
-        <span>《抗日游击战争的战略问题》</span>
+        <h2>1.党的十八大以来，以习近平同志为核心的党中央把统一战线作为治国理政的重要方面，召开了一系列重要会议，颁布了一系列重要法规文件，特别是习近平总书记发表了一系列重要讲话，提出了一系列新思想新观点新要求，形成了（  ），成为习近平新时代中国特色社会主义思想的重要组成部分。</h2>
+        <span class="right">A.习近平总书记关于加强和改进统一战线工作的重要思想</span>
+        <span>B.习近平统战思想</span>
+        <span>C.习近平统一战线思想</span>
+        <span>D.习近平新时代统一战线思想</span>
+      </li>
+      <li>
+        <h2>2.习近平总书记关于加强和改进统一战线工作的重要思想内容极为丰富，思想极为深刻，浓缩到一点，就是习近平总书记在党的十九大报告中强调的“找到最大公约数、（  ）”。这是对我们党统一战线理论和实践的深刻总结，也是贯穿新时代统战工作的一条主线。</h2>
+        <span>A.形成最大同心圆</span>
+        <span>B.结成做大同心圆</span>
+        <span>C.铸成最大同心圆</span>
+        <span class="right">D.画出最大同心圆</span>
       </li>
       <li>
         <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
@@ -28,16 +36,11 @@
         <span>《抗日游击战争的战略问题》</span>
       </li>
       <li>
-        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
-        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
-        <span>《论持久战》</span>
-        <span>《抗日游击战争的战略问题》</span>
-      </li>
-      <li>
-        <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
-        <span class="right">《抗日游击战争的战略问题》和《论持久战》</span>
-        <span>《论持久战》</span>
-        <span>《抗日游击战争的战略问题》</span>
+        <h2>6. 1902年，（    ）正式提出了“中华民族”的称谓。</h2>
+        <span>A. 孙中山</span>
+        <span class="right">B. 梁启超</span>
+        <span>C. 康有为</span>
+        <span>D. 魏源</span>
       </li>
       <li>
         <h2>1938年5月，毛泽东发表了著名的（ ），成为指导中国抗战的纲领性文献。</h2>
@@ -81,6 +84,12 @@
       running: false
     },
     created: function () {
+      // 返回首页
+      // if (!owo.state.start) {
+      //   setTimeout(() => {
+      //     location.replace('')
+      //   }, 0)
+      // }
       // 注册返回方式
       owo.state.animation = {
         "in": 'moveToRight',
@@ -124,15 +133,19 @@
               // 答对了
               this.data.right++
               target.classList.add('click')
+              // 进入下一题
+              setTimeout(() => {
+                this.after()
+              }, 500)
             } else {
               // 答错了
               target.classList.add('click')
               target.parentElement.getElementsByClassName('right')[0].classList.add('click')
+              // 进入下一题
+              setTimeout(() => {
+                this.after()
+              }, 1000)
             }
-            // 无论对错均进入下一题
-            setTimeout(() => {
-              this.after()
-            }, 1000)
           }
         }
       }
@@ -204,7 +217,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 10%;
+  top: 5%;
   margin: 0 auto;
 }
 .decorate {
@@ -213,7 +226,7 @@
   background-position: center;
   position: absolute;
   width: 100%;
-  top: 20%;
+  top: 15%;
   text-align: center;
   line-height: 30px;
   background-image: url('@&decorate.png&');
@@ -226,47 +239,51 @@
 }
 .before {
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   width: 100px;
   left: 8%;
 }
 .after {
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   width: 100px;
   right: 8%;
 }
 .subject-box {
   width: 100%;
-  height: 55%;
+  height: 65%;
   position: absolute;
-  top: 26%;
+  top: 21%;
   left: 0;
-  overflow: auto;
+  overflow: hidden;
   transition: left 0.5s;
   li {
     float: left;
     height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
     h2 {
       color: #484848;
-      font-size: 20px;
+      font-size: 14px;
+      line-height: 24px;
       margin: 0 25px;
-      margin-bottom: 30px;
+      margin-bottom: 15px;
+      font-weight: normal;
     }
     span {
       display: block;
       background-color: white;
-      margin: 20px 25px;
-      font-size: 20px;
-      text-align: center;
+      margin: 10px 25px;
+      font-size: 14px;
       padding: 5px 0;
-      line-height: 35px;
+      line-height: 24px;
       color: #484848;
       border-radius: 5px;
       box-shadow: 2px 2px 5px #888888;
       background-repeat: no-repeat;
       background-size: 25px;
       background-position: 97% 90%;
+      padding: 10px;
     }
     span.click {
       background-image: url('@&error.png&');

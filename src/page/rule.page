@@ -18,25 +18,19 @@
 <script>
   module.exports = {
     created: function () {
+      // 返回首页
+      if (!owo.state.start) {
+        setTimeout(() => {
+          location.replace('')
+        }, 0)
+      }
       // 注册返回方式
       owo.state.animation = {
         "in": 'moveToRight',
         "out": 'moveFromLeft'
       }
       // 计算长宽比例
-      const sw = document.body.offsetWidth / 750
-      const sh = document.body.offsetHeight / 1500
-      const ms = sw > sh ? sh : sw
-      // 获取页面安全区
-      const safety = this.$el.getElementsByClassName('safety')[0]
-      safety.style.transform = `scale(${ms})`
-      if (sw > sh) {
-        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
-        safety.style.left = `${-750 / 2 * (1 - sw)}px`
-      } else {
-        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
-        safety.style.left = `${-750 / 2 * (1 - sw)}px`
-      }
+      changeDecorate(this.$el)
     },
     look: function () {
       $go('two', 'moveToLeft', 'moveFromRight')
@@ -60,7 +54,8 @@
   cursor: pointer;
 }
 p {
-  font-size: 30px;
+  font-size: 32px;
+  font-weight: bold;
   line-height: 50px;
   width: 62%;
   position: absolute;

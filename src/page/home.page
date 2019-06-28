@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" @click="turn">
     <div class="safety">
       <img class="title title1" src="@&title-1.png&"/>
       <img class="title title2" src="@&title-2.png&"/>
@@ -16,22 +16,17 @@
       // 3秒后跳转页面
       setTimeout(() => {
         // $go('two', 'moveToRight', 'moveFromLeft')
-        $go('two', 'moveToLeft', 'moveFromRight')
+        owo.state.start = true
+        // 如果还是在首页则自动跳转
+        if (owo.activePage === 'home') {
+          $go('two', 'moveToLeft', 'moveFromRight')
+        }
       }, 6000)
       // 计算长宽比例
-      const sw = document.body.offsetWidth / 750
-      const sh = document.body.offsetHeight / 1500
-      const ms = sw > sh ? sh : sw
-      // 获取页面安全区
-      const safety = this.$el.getElementsByClassName('safety')[0]
-      safety.style.transform = `scale(${ms})`
-      if (sw > sh) {
-        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
-        safety.style.left = `${-750 / 2 * (1 - sw)}px`
-      } else {
-        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
-        safety.style.left = `${-750 / 2 * (1 - sw)}px`
-      }
+      changeDecorate(this.$el)
+    },
+    turn: function () {
+      $go('two', 'moveToLeft', 'moveFromRight')
     }
   }
 </script>
@@ -61,11 +56,11 @@
 
 @keyframes moveFromBootom {
   from {
-    bottom: -5%;
+    top: 1400px;;
     opacity: 0;
   }
   to {
-    bottom: 3%;
+    top: 1169px;;
     opacity: 1;
   }
 }
@@ -78,7 +73,7 @@
 .title1 {
   left: 0;
   right: 0;
-  top: 190px;
+  top: 150px;
   opacity: 0;
   animation-fill-mode: forwards;
   animation-name: 'moveFromTop';
@@ -87,7 +82,7 @@
 .title2 {
   left: 0;
   right: 0;
-  top: 290px;
+  top: 165px;
   opacity: 0;
   animation-fill-mode: forwards;
   animation-name: 'fadein';
@@ -95,8 +90,7 @@
   animation-delay: 1s;
 }
 .title3 {
-  width: 85%;
-  bottom: 12%;
+  top: 1169px;
   left: 0;
   right: 0;
   opacity: 0;;
@@ -104,5 +98,8 @@
   animation-name: 'moveFromBootom';
   animation-duration: 1s;
   animation-delay: 3s;
+}
+.safety {
+  pointer-events: none;
 }
 </style>

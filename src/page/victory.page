@@ -25,32 +25,28 @@
     data: {
     },
     created: function () {
+      // 返回首页
+      // if (!owo.state.start) location.replace('#home')
       // 注册返回方式
       owo.state.animation = {
         "in": 'moveToRight',
         "out": 'moveFromLeft'
       }
       // 修复输入框弹出屏幕改变大小问题
-      document.body.style.maxWidth = '100%'
-      document.body.style.height = window.innerHeight + 'px'
+      if (document.body.clientWidth < document.body.clientHeight) {
+        document.body.style.maxWidth = '100%'
+        document.body.style.height = window.innerHeight + 'px'
+      }
+      
+
+
       // console.log(document.body.style)
       this.$el.getElementsByClassName('number')[0].innerText = owo.state.right ? owo.state.right : 0
 
       this.$el.getElementsByTagName('span')[0].innerText = owo.state.right ? owo.state.right : 0
-      // 计算长宽比例
-      const sw = document.body.offsetWidth / 750
-      const sh = document.body.offsetHeight / 1500
-      const ms = sw > sh ? sh : sw
-      // 获取页面安全区
-      const safety = this.$el.getElementsByClassName('safety')[0]
-      safety.style.transform = `scale(${ms})`
-      if (sw > sh) {
-        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
-        safety.style.left = `${-750 / 2 * (1 - sw)}px`
-      } else {
-        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
-        safety.style.left = `${-750 / 2 * (1 - sw)}px`
-      }
+      log(document.body.clientWidth, document.body.clientHeight)
+      
+      changeDecorate(this.$el)
     }
   }
 </script>
@@ -71,12 +67,11 @@
   right: 0;
 }
 .box {
-  width: 100%;
   position: absolute;
   left: 0;
   right: 0;
   margin: auto;
-  top: 5%;
+  top: 285px;
 }
 .text {
   width: 78%;
@@ -87,7 +82,7 @@
   left: 0;
   right: 0;
   margin: 0 auto;
-  top: 265px;
+  top: 460px;
   position: absolute;
   span {
     color: #ec513a;
@@ -100,7 +95,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 54%;
+  top: 900px;
   margin: 0 auto;
   .input-bar {
     display: flex;
@@ -114,7 +109,10 @@
       font-size: 40px;
     }
     input {
-      width: calc(100% - 94px);
+      font-size: 30px;
+      padding: 0 5px;
+      width: 290px;
+      height: 60px;
     }
   }
 }
@@ -130,6 +128,6 @@
   left: 0;
   right: 0;
   margin: auto;
-  top: 968px;
+  top: 1080px;
 }
 </style>

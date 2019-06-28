@@ -8,7 +8,7 @@
       <img class="go" src="@&go.png&" @click="toAnswerQuestions"/>
       <!-- 编者按文字 -->
       <p>
-        &nbsp;&nbsp;统战工作作为党的“三大法宝”之一，在新中国建设发展中起到了举足轻重的作用。
+        &nbsp;&nbsp;统战工作作为党的“三大法宝”之一，在新中国建设发展中起到了举足轻重的作用。<br>
         &nbsp;&nbsp;为礼敬新中国成立70周年华诞，人民网联合中央统战部宣传办于7月29日起推出“统一战线知识70年70题”移动端有奖竞答活动。
       </p>
     </div>
@@ -20,25 +20,18 @@
     data: {
     },
     created: function () {
+      // 返回首页
+      if (!owo.state.start) {
+        setTimeout(() => {
+          location.replace('')
+        }, 0)
+      }
       // 注册返回方式
       owo.state.animation = {
         "in": 'moveToRight',
         "out": 'moveFromLeft'
       }
-      // 计算长宽比例
-      const sw = document.body.offsetWidth / 750
-      const sh = document.body.offsetHeight / 1500
-      const ms = sw > sh ? sh : sw
-      // 获取页面安全区
-      const safety = this.$el.getElementsByClassName('safety')[0]
-      safety.style.transform = `scale(${ms})`
-      if (sw > sh) {
-        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
-        safety.style.left = `${-750 / 2 * (1 - sw)}px`
-      } else {
-        safety.style.top = `${-1500 / 2 * (1 - sh)}px`
-        safety.style.left = `${-750 / 2 * (1 - sw)}px`
-      }
+      changeDecorate(this.$el)
     },
     look: function () {
       $go('rule', 'moveToLeft', 'moveFromRight')
@@ -77,8 +70,8 @@
   cursor: pointer;
 }
 p {
-  font-size: 38px;
-  line-height: 72px;
+  font-size: 40px;
+  line-height: 65px;
   width: 505px;
   position: absolute;
   left: 186px;
