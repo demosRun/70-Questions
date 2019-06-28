@@ -8,14 +8,14 @@
       <div class="input-box">
         <div class="input-bar">
           <span>姓名：</span>
-          <input type="text">
+          <input id="name" type="text">
         </div>
         <div class="input-bar">
           <span>手机号：</span>
-          <input type="text">
+          <input id="phone" type="text">
         </div>
       </div>
-      <div class="button">提交</div>
+      <div class="button" @click="submit">提交</div>
     </div>
   </div>
 </template>
@@ -26,7 +26,11 @@
     },
     created: function () {
       // 返回首页
-      // if (!owo.state.start) location.replace('#home')
+      if (!owo.state.start) {
+        setTimeout(() => {
+          location.replace('')
+        }, 0)
+      }
       // 注册返回方式
       owo.state.animation = {
         "in": 'moveToRight',
@@ -45,8 +49,22 @@
 
       this.$el.getElementsByTagName('span')[0].innerText = owo.state.right ? owo.state.right : 0
       log(document.body.clientWidth, document.body.clientHeight)
-      
+
       changeDecorate(this.$el)
+    },
+    submit: function () {
+      const name = document.getElementById('name').value
+      const phone = document.getElementById('phone').value
+      // console.log(name, phone)
+      owo.tool.toast('提交成功!')
+      $.post("http://www.people.com.cn/", {
+        name,
+        phone,
+        code: owo.state.right
+      }, (result) => {
+        
+      })
+      
     }
   }
 </script>

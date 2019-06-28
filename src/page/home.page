@@ -26,6 +26,7 @@
       changeDecorate(this.$el)
     },
     turn: function () {
+      owo.state.start = true
       $go('two', 'moveToLeft', 'moveFromRight')
     }
   }
